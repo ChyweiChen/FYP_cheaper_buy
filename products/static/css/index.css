@@ -1,0 +1,132 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  background-color: rgb(248, 249, 248);
+}
+
+
+.header {
+  height: 70px;
+  line-height: 70px;
+  background: rgb(72, 149, 182);
+}
+
+.header .container {
+  display: flex;
+}
+
+.header-logo {
+  display: block;
+  width: 300px;
+}
+
+.header-logo img {
+  height: 70px;
+}
+
+.header .search {
+  width: 600px;
+  height: 46px;
+  line-height: 46px;
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .search input {
+  width: 460px;
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: .5rem 10px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.header .search a {
+  width: 120px;
+  height: 44px;
+  margin-top: 1px;
+  text-align: center;
+  background-color: #fff;
+  color: rgb(72, 149, 182);
+  border-radius: 5px;
+}
+
+main .container {
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+
+main ul {
+  background-color: #fff;
+  padding: 30px 20px;
+  margin: 0;
+}
+
+main ul li {
+  list-style: none;
+  display: flex;
+  border-bottom: 1px solid rgb(234, 234, 234);
+  padding: 10px 10px;
+  line-height: 40px;
+  min-height: 40px;
+}
+
+main ul li div {
+  text-align: left;
+}
+
+main ul li > div:first-child {
+  width: 15%;
+}
+
+
+main ul li > div:first-child img {
+  display: block;
+  height: 40px;
+}
+
+main ul li > div:nth-child(2) {
+  width: 65%;
+  font-weight: bold;
+}
+
+main ul li > div:nth-child(3) {
+  display: flex;
+}
+
+.price {
+  color: rgb(219, 42, 48);
+  width: 100px;
+}
+
+main ul li > div:nth-child(3) a {
+  display: block;
+  background-color: green;
+  color: #fff;
+  padding: 0 15px;
+  height: 40px;
+}
+.step-links{
+   text-align: center;
+   margin: auto;
+  font-size:1.1em;
+  font-weight:bold;
+}
+.lastpage{
+  padding-right: 20px;
+  color: cornflowerblue;
+}
+.nextpage{
+  padding-left: 20px;
+  color: cornflowerblue;
+}

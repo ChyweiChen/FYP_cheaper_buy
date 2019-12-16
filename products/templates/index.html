@@ -1,0 +1,87 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cheaper Buy</title>
+  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-logo">
+        <a href="/">
+          <img src="{% static 'img/app_logo.jpg' %}" alt="Cheaper Buy">
+        </a>
+      </div>
+      <div class="search">
+        <input id="qv" value="{{ q }}" type="text" placeholder="Search product">
+        <a class="btn" href="" id="qa">Search</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <ul>
+        <li>
+          <div>Store</div>
+          <div>Product</div>
+          <div>Price</div>
+        </li>
+        {% for p in data %}
+        <li>
+          <div>
+            {% if p.store == 0 %}
+            <img src="{% static 'img/amazon.png' %}" alt="">
+            {% elif p.store == 1 %}
+            <img src="{% static 'img/ebay.png' %}" alt="">
+            {% else %}
+            <img src="{% static 'img/buyitdirect.png' %}" alt="">
+            {% endif %}
+          </div>
+          <div>{{ p.name }}</div>
+          <div>
+            <div class="price">£{{ p.price }}</div>
+            <a href="{{ p.url }}" target="_blank">VIEW IN SHOP</a>
+          </div>
+        </li>
+        {% endfor %}
+      <ul class="pagination">
+                    <li class="step-links">
+                    {% if data.has_previous %}
+                        <a class='lastpage' href="?page={{ data.previous_page_number }}">Last Page</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ data.number }} of {{ data.paginator.num_pages }}</span>
+
+                    {% if data.has_next %}
+                        <a class='nextpage' href="?page={{ data.next_page_number }}">Next Page</a>
+                    {% endif %}
+                    </li></ul>
+      </ul>
+    </div>
+
+  </main>
+
+
+  <script>
+    $('#qv').on('input', function() {
+      $('#qa').attr('href', `/?q=${$(this).val()}`);
+    });
+  </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
